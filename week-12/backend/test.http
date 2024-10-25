@@ -1,0 +1,35 @@
+GET http://localhost:3000/employees
+
+###
+
+GET http://localhost:3000/employee/2
+
+###
+
+POST http://localhost:3000/employees
+Content-Type: application/json
+
+{
+    "firstName": "Sila",
+    "lastName": "Pakdeewong",
+    "email": "65070219@kmitl.ac.th",
+    "phone": "0987654321",
+    "title": "Software Engineer"
+}
+
+###
+
+PUT http://localhost:3000/employee/2
+Content-Type: application/json
+
+{
+    "firstName": "Sila",
+    "lastName": "Pakdeewong",
+    "email": "65070219@kmitl.ac.th",
+    "phone": "0987654321",
+    "title": "ยาม"
+}
+
+###
+
+DELETE http://localhost:3000/employee/11

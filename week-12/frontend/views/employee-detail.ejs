@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User Detail</h1>
+    <table>
+        <tbody>
+            <tr>
+                <td>Employee ID: </td>
+                <td><%= employee.EmployeeId %></td>
+            </tr>
+            <tr>
+                <td>First Name: </td>
+                <td><%= employee.FirstName %></td>
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td><%= employee.LastName %></td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td><%= employee.Email %></td>
+            </tr>
+            <tr>
+                <td>Phone Number: </td>
+                <td><%= employee.Phone %></td>
+            </tr>
+            <tr>
+                <td>Title: </td>
+                <td><%= employee.Title %></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/employee/<%=employee.EmployeeId%>/update">Update Data</a>
+    <br>
+    <button onclick="onDelete()">Delete Data</button>
+    <br>
+    <a href="/employees">Back to Employees</a>
+
+    <script>
+        const onDelete = async () => {
+            const response = await fetch(`http://localhost:3000/employee/<%=employee.EmployeeId%>`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) {
+                window.location.href = '/employees';
+            } else {
+                alert('Failed to delete employee');
+            }
+        }
+    </script>
+</body>
+</html>
